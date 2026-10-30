@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML Lessons — Інтерактивні уроки HTML</title>
+    <meta
+      name="description"
+      content="Навчальні приклади HTML: текст, посилання, зображення, таблиці, форми та мультимедіа."
+    />
+    <meta property="og:title" content="HTML Lessons — уроки HTML" />
+    <meta
+      property="og:description"
+      content="Наочні приклади HTML-елементів для навчання."
+    />
+    <meta property="og:type" content="website" />
+    <link rel="icon" type="image/png" href="src/favicon.png" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="lessons">
+        <div class="lesson-text">
+          <h2>Text</h2>
+          <p>
+            Текст на сторінці розміщують в абзацах
+            <code>&lt;p&gt;</code>. Наприклад,
+            <strong>важливу думку</strong> (<code>&lt;strong&gt;</code>) можна
+            виділити жирним, а
+            <em>інтонаційний наголос</em> (<code>&lt;em&gt;</code>) — курсивом.
+          </p>
+          <p>
+            Також можна позначити <mark>важливий фрагмент</mark>
+            (<code>&lt;mark&gt;</code>) або показати
+            <code>фрагмент коду</code> (<code>&lt;code&gt;</code>).
+          </p>
+        </div>
+        <div class="lesson-links">
+          <h2>Links</h2>
+          <p>
+            Посилання ведуть на інші сторінки або розділи поточної сторінки.
+          </p>
+          <a
+            href="https://developer.mozilla.org/uk/docs/Web/HTML"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Довідник HTML на MDN</a
+          >
+          <span> · </span>
+          <a href="#lesson-form">Перейти до прикладу форми</a>
+        </div>
+        <div class="lesson-image">
+          <h2>Image</h2>
+          <p>
+            Зображення додають тегом <code>&lt;img&gt;</code>. Атрибут
+            <code>alt</code> описує його для доступності.
+          </p>
+          <img
+            src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 360'%3E%3Crect width='640' height='360' fill='%23dbeafe'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='32' fill='%231d4ed8'%3EHTML Image%3C/text%3E%3C/svg%3E"
+            alt="Приклад-заглушка з написом HTML Image"
+            width="320"
+            height="180"
+          />
+          <p>Те саме зображення з локального файлу у папці <code>src</code>:</p>
+          <img
+            src="src/image.jpg"
+            alt="Навчальне зображення з файлу src/image.jpg"
+            width="320"
+          />
+        </div>
+        <div class="lesson-page-parametr">
+          <h2>Page Parameters</h2>
+          <p>
+            Мова документа задається атрибутом <code>lang</code> у тезі
+            <code>&lt;html&gt;</code>. Кодування та масштаб сторінки
+            налаштовують через елементи <code>&lt;meta&gt;</code> у блоці
+            <code>&lt;head&gt;</code>.
+          </p>
+          <pre><code>&lt;html lang="uk"&gt;
+&lt;meta charset="UTF-8"&gt;
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code></pre>
+        </div>
+        <div class="lesson-tables">
+          <h2>Tables</h2>
+          <p>
+            Таблиці показують структуровані дані: рядки створюють через
+            <code>&lt;tr&gt;</code>, заголовки — через <code>&lt;th&gt;</code>,
+            комірки — через <code>&lt;td&gt;</code>.
+          </p>
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Тег</th>
+                <th scope="col">Призначення</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>&lt;tr&gt;</code></td>
+                <td>Рядок таблиці</td>
+              </tr>
+              <tr>
+                <td><code>&lt;td&gt;</code></td>
+                <td>Звичайна комірка</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="lesson-button">
+          <h2>Button</h2>
+          <p>
+            Кнопка запускає дію, наприклад надсилання форми або виконання
+            команди.
+          </p>
+          <!-- Змініть type на "submit" для надсилання форми або на "reset", щоб очистити її; disabled вимикає кнопку. -->
+          <button type="button">Звичайна кнопка</button>
+          <button type="button" disabled>Неактивна кнопка</button>
+        </div>
+        <div class="lesson-iframes">
+          <h2>Iframes</h2>
+          <p>
+            <code>&lt;iframe&gt;</code> вбудовує окрему HTML-сторінку в поточну.
+          </p>
+          <iframe
+            title="Стаття HTML у Вікіпедії"
+            src="https://uk.wikipedia.org/wiki/HTML"
+            height="500"
+            loading="lazy"
+          ></iframe>
+          <p>
+            <a
+              href="https://uk.wikipedia.org/wiki/HTML"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Відкрити статтю HTML у Вікіпедії в новій вкладці
+            </a>
+          </p>
+        </div>
+        <div class="lesson-js">
+          <h2>JavaScript</h2>
+          <script>
+            document.currentScript.insertAdjacentHTML(
+              "afterend",
+              "<p>JavaScript виконав цей код.</p>",
+            );
+          </script>
+        </div>
+        <div class="lesson-head">
+          <h2>Head</h2>
+          <p>
+            У блоці <code>&lt;head&gt;</code> вказують SEO-метадані: змістовну
+            назву сторінки та короткий опис для пошукових систем. Open Graph
+            метадані задають заголовок і опис під час поширення посилання в
+            соцмережах.
+          </p>
+          <pre><code>&lt;head&gt;
+  &lt;title&gt;HTML Lessons — уроки HTML&lt;/title&gt;
+  &lt;meta name="description" content="Наочні приклади HTML для навчання."&gt;
+  &lt;meta property="og:title" content="Уроки HTML"&gt;
+  &lt;meta property="og:description" content="Вивчаємо HTML на прикладах."&gt;
+  &lt;link rel="icon" type="image/png" href="src/favicon.png"&gt;
+&lt;/head&gt;</code></pre>
+          <p>
+            Щоб змінити іконку вкладки, замініть файл
+            <code>src/favicon.png</code> на власну іконку або вкажіть шлях до
+            іншого файлу в атрибуті <code>href</code> елемента
+            <code>&lt;link rel="icon"&gt;</code>.
+          </p>
+        </div>
+        <div class="lesson-responsive">
+          <h2>Responsive Design</h2>
+          <p>
+            Адаптивний дизайн підлаштовує розміри та розташування елементів під
+            ширину екрана. Медіазапити допомагають змінювати стилі для мобільних
+            пристроїв.
+          </p>
+          <pre><code>@media (max-width: 600px) {
+  .card {
+    padding: 12px;
+  }
+}</code></pre>
+        </div>
+        <div class="lesson-form" id="lesson-form">
+          <h2>Form</h2>
+          <p>
+            Форма збирає дані від користувача. Атрибути <code>type</code>,
+            <code>name</code> і <code>required</code> визначають тип та правила
+            введення.
+          </p>
+          <form>
+            <label for="student-name">Ім'я</label>
+            <!-- Змініть type="text" на type="password", щоб приховувати введення; також можна використати email, number, date, checkbox або radio. -->
+            <input
+              id="student-name"
+              type="text"
+              name="name"
+              placeholder="Наприклад, Олена"
+              required
+            />
+            <label for="student-email">Електронна пошта</label>
+            <!-- Інші корисні атрибути input: minlength, maxlength, min, max, pattern і autocomplete. -->
+            <input
+              id="student-email"
+              type="email"
+              name="email"
+              placeholder="name@example.com"
+              required
+            />
+            <label for="student-birthday">Дата народження</label>
+            <input id="student-birthday" type="date" name="birthday" />
+            <label class="choice-label" for="html-updates">
+              <input id="html-updates" type="checkbox" name="updates" />
+              Надсилати мені новини про уроки HTML
+            </label>
+            <fieldset>
+              <legend>Який розділ HTML цікавить найбільше?</legend>
+              <label class="choice-label" for="topic-forms">
+                <input
+                  id="topic-forms"
+                  type="radio"
+                  name="favorite-topic"
+                  value="forms"
+                  checked
+                />
+                Форми
+              </label>
+              <label class="choice-label" for="topic-media">
+                <input
+                  id="topic-media"
+                  type="radio"
+                  name="favorite-topic"
+                  value="media"
+                />
+                Мультимедіа
+              </label>
+              <label class="choice-label" for="topic-tables">
+                <input
+                  id="topic-tables"
+                  type="radio"
+                  name="favorite-topic"
+                  value="tables"
+                />
+                Таблиці
+              </label>
+            </fieldset>
+            <button type="submit">Надіслати</button>
+          </form>
+        </div>
+        <div class="lesson-media">
+          <h2>Media</h2>
+          <p>
+            Елементи <code>&lt;audio&gt;</code> і
+            <code>&lt;video&gt;</code> додають на сторінку звук і відео. Вкажіть
+            файл у <code>src</code> або в дочірньому елементі
+            <code>&lt;source&gt;</code>.
+          </p>
+          <p>Аудіо з файлу <code>src/music.mp3</code> через атрибут <code>src</code>:</p>
+          <audio controls src="src/music.mp3"></audio>
+          <p>Той самий аудіофайл через вкладений елемент <code>&lt;source&gt;</code>:</p>
+          <audio controls>
+            <source src="src/music.mp3" type="audio/mpeg" />
+            Ваш браузер не підтримує відтворення аудіо.
+          </audio>
+          <pre><code>&lt;audio controls src="src/music.mp3"&gt;&lt;/audio&gt;</code></pre>
+          <video
+            controls
+            width="320"
+            height="180"
+            src="src/video.mov"
+            poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 360'%3E%3Crect width='640' height='360' fill='%23e0e7ff'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='32' fill='%234f46e5'%3EHTML Video%3C/text%3E%3C/svg%3E"
+          >
+            Ваш браузер не підтримує відтворення відео.
+          </video>
+          <p>Те саме відео через вкладений елемент <code>&lt;source&gt;</code>:</p>
+          <video
+            controls
+            width="320"
+            height="180"
+            poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 360'%3E%3Crect width='640' height='360' fill='%23e0e7ff'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='32' fill='%234f46e5'%3EHTML Video%3C/text%3E%3C/svg%3E"
+          >
+            <source src="src/video.mov" type="video/quicktime" />
+            Ваш браузер не підтримує відтворення відео.
+          </video>
+          <pre><code>&lt;video controls&gt;
+  &lt;source src="src/video.mov" type="video/quicktime"&gt;
+&lt;/video&gt;</code></pre>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
