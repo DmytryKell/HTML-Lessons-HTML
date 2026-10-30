@@ -15,11 +15,20 @@
     />
     <meta property="og:type" content="website" />
     <link rel="icon" type="image/png" href="src/favicon.png" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="base.css" />
+    <link rel="stylesheet" href="html.css" />
   </head>
   <body>
     <div class="container">
-      <div class="lessons">
+      <header class="site-header">
+        <a class="site-brand" href="index.html">HTML &amp; CSS &amp; JS Lessons</a>
+        <nav class="site-nav" aria-label="Головна навігація">
+          <a href="index.html" aria-current="page">HTML</a>
+          <a href="css.html">CSS</a>
+          <a href="js.html">JavaScript</a>
+        </nav>
+      </header>
+      <main class="lessons">
         <div class="lesson-text">
           <h2>Text</h2>
           <p>
@@ -255,9 +264,15 @@
             файл у <code>src</code> або в дочірньому елементі
             <code>&lt;source&gt;</code>.
           </p>
-          <p>Аудіо з файлу <code>src/music.mp3</code> через атрибут <code>src</code>:</p>
+          <p>
+            Аудіо з файлу <code>src/music.mp3</code> через атрибут
+            <code>src</code>:
+          </p>
           <audio controls src="src/music.mp3"></audio>
-          <p>Той самий аудіофайл через вкладений елемент <code>&lt;source&gt;</code>:</p>
+          <p>
+            Той самий аудіофайл через вкладений елемент
+            <code>&lt;source&gt;</code>:
+          </p>
           <audio controls>
             <source src="src/music.mp3" type="audio/mpeg" />
             Ваш браузер не підтримує відтворення аудіо.
@@ -272,7 +287,9 @@
           >
             Ваш браузер не підтримує відтворення відео.
           </video>
-          <p>Те саме відео через вкладений елемент <code>&lt;source&gt;</code>:</p>
+          <p>
+            Те саме відео через вкладений елемент <code>&lt;source&gt;</code>:
+          </p>
           <video
             controls
             width="320"
@@ -285,7 +302,7 @@
           <pre><code>&lt;video controls&gt;
   &lt;source src="src/video.mov" type="video/quicktime"&gt;
 &lt;/video&gt;</code></pre>
-        </div>
+        </main>
       </div>
     </div>
   </body>

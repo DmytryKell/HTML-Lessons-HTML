@@ -15,6 +15,47 @@ body {
   margin: 0 auto;
 }
 
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 24px;
+  padding: 16px 20px;
+  background: #fff;
+  border: 1px solid #dbe3ee;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgb(15 23 42 / 6%);
+}
+
+.site-brand {
+  color: #1e293b;
+  font-size: 1.15rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.site-nav a {
+  padding: 8px 14px;
+  color: #334155;
+  border-radius: 6px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.site-nav a:hover,
+.site-nav a:focus-visible,
+.site-nav a[aria-current="page"] {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
 .lessons {
   display: flex;
   flex-direction: column;
@@ -33,19 +74,6 @@ body {
   border-radius: 12px;
   box-shadow: 0 4px 12px rgb(15 23 42 / 6%);
 }
-
-.lesson-text { --lesson-accent: #2563eb; }
-.lesson-links { --lesson-accent: #7c3aed; }
-.lesson-image { --lesson-accent: #0891b2; }
-.lesson-page-parametr { --lesson-accent: #64748b; }
-.lesson-tables { --lesson-accent: #16a34a; }
-.lesson-button { --lesson-accent: #ea580c; }
-.lesson-iframes { --lesson-accent: #db2777; }
-.lesson-js { --lesson-accent: #ca8a04; }
-.lesson-head { --lesson-accent: #475569; }
-.lesson-responsive { --lesson-accent: #0d9488; }
-.lesson-form { --lesson-accent: #dc2626; }
-.lesson-media { --lesson-accent: #4f46e5; }
 
 .lessons h2 {
   margin: 0 0 16px;
@@ -108,12 +136,18 @@ body {
 }
 
 .lessons input,
+.lessons textarea,
 .lessons button {
   max-width: 100%;
   padding: 10px 12px;
   border: 1px solid #cbd5e1;
   border-radius: 6px;
   font: inherit;
+}
+
+.lessons textarea {
+  width: 100%;
+  resize: vertical;
 }
 
 .lessons input[type="checkbox"],
@@ -151,6 +185,14 @@ body {
 @media (max-width: 480px) {
   body {
     padding: 20px 12px;
+  }
+
+  .site-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 16px;
+    padding: 16px;
   }
 
   .lessons {

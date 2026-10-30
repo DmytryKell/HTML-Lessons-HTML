@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Lessons — Наочні уроки CSS</title>
+    <meta
+      name="description"
+      content="Наочні приклади CSS: селектори, кольори, типографіка, box model, flexbox, grid та адаптивність."
+    />
+    <meta property="og:title" content="CSS Lessons — уроки CSS" />
+    <meta
+      property="og:description"
+      content="Вивчайте стилі CSS на наочних прикладах."
+    />
+    <meta property="og:type" content="website" />
+    <link rel="icon" type="image/png" href="src/favicon.png" />
+    <link rel="stylesheet" href="base.css" />
+    <link rel="stylesheet" href="css.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="site-header">
+        <a class="site-brand" href="index.html">HTML &amp; CSS &amp; JS Lessons</a>
+        <nav class="site-nav" aria-label="Головна навігація">
+          <a href="index.html">HTML</a>
+          <a href="css.html" aria-current="page">CSS</a>
+          <a href="js.html">JavaScript</a>
+        </nav>
+      </header>
+      <main class="lessons css-lessons">
+        <section class="lesson-css-selectors">
+          <h1>CSS: наочні уроки</h1>
+          <p>
+            CSS описує вигляд HTML-елементів. Змінюйте правила у прикладах і
+            спостерігайте, як змінюється оформлення.
+          </p>
+          <h2>Селектори</h2>
+          <p>
+            Селектор обирає елементи, до яких застосовуються стилі. Наприклад,
+            <code>.demo-note</code> обирає елемент за класом, а
+            <code>strong</code> — за назвою тегу.
+          </p>
+          <pre><code>.demo-note {
+  color: #1d4ed8;
+}
+
+.demo-note strong {
+  text-decoration: underline;
+}</code></pre>
+          <p class="demo-note">
+            Цей абзац має клас <code>demo-note</code>, а
+            <strong>цей текст підкреслений селектором strong</strong>.
+          </p>
+        </section>
+
+        <section class="lesson-css-colors">
+          <h2>Кольори та фон</h2>
+          <p>
+            Властивості <code>color</code> і <code>background-color</code>
+            задають колір тексту та фону.
+          </p>
+          <pre><code>.color-demo {
+  color: #fff;
+  background-color: #0f766e;
+}</code></pre>
+          <div class="color-demo">Білий текст на кольоровому тлі</div>
+        </section>
+
+        <section class="lesson-css-typography">
+          <h2>Типографіка</h2>
+          <p>
+            CSS керує шрифтом, розміром, товщиною та інтервалом між рядками.
+          </p>
+          <pre><code>.type-demo {
+  font-family: Georgia, serif;
+  font-size: 1.4rem;
+  line-height: 1.6;
+}</code></pre>
+          <p class="type-demo">Інший шрифт, розмір і висота рядка</p>
+        </section>
+
+        <section class="lesson-css-box-model">
+          <h2>Box model: відступи та рамка</h2>
+          <p>
+            Кожен елемент — прямокутна область. <code>padding</code> додає
+            внутрішній відступ, <code>border</code> — рамку, а
+            <code>margin</code> — зовнішній простір.
+          </p>
+          <pre><code>.box-demo {
+  padding: 16px;
+  border: 3px solid #7c3aed;
+  margin: 12px 0;
+}</code></pre>
+          <div class="box-demo">Вміст блоку з рамкою та відступами</div>
+        </section>
+
+        <section class="lesson-css-background">
+          <h2>Рамки, заокруглення й тіні</h2>
+          <p>
+            <code>border-radius</code> заокруглює кути, а
+            <code>box-shadow</code> додає тінь.
+          </p>
+          <pre><code>.card-demo {
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgb(15 23 42 / 12%);
+}</code></pre>
+          <div class="card-demo">Картка із заокругленням і тінню</div>
+        </section>
+
+        <section class="lesson-css-flex">
+          <h2>Flexbox</h2>
+          <p>
+            <code>display: flex</code> розташовує елементи в ряд або колонку.
+            <code>gap</code> задає відстань між ними.
+          </p>
+          <pre><code>.flex-demo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}</code></pre>
+          <div class="flex-demo">
+            <span>Перший елемент</span>
+            <span>Другий елемент</span>
+            <span>Третій елемент</span>
+          </div>
+        </section>
+
+        <section class="lesson-css-grid">
+          <h2>CSS Grid</h2>
+          <p>
+            Grid створює сітку рядків і колонок. Тут кожна колонка має однакову
+            ширину.
+          </p>
+          <pre><code>.grid-demo {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}</code></pre>
+          <div class="grid-demo">
+            <span>Комірка 1</span>
+            <span>Комірка 2</span>
+            <span>Комірка 3</span>
+          </div>
+        </section>
+
+        <section class="lesson-css-interaction">
+          <h2>Стани та взаємодія</h2>
+          <p>
+            Псевдокласи, наприклад <code>:hover</code> і <code>:focus</code>,
+            стилізують елемент під час взаємодії з ним.
+          </p>
+          <pre><code>.interactive-demo:hover {
+  background-color: #1d4ed8;
+}
+
+.interactive-demo:focus-visible {
+  outline: 3px solid #93c5fd;
+}</code></pre>
+          <button class="interactive-demo" type="button">
+            Наведіть курсор або перейдіть клавішею Tab
+          </button>
+        </section>
+
+        <section class="lesson-css-responsive">
+          <h2>Адаптивність і медіазапити</h2>
+          <p>
+            Медіазапит застосовує стилі лише за певної умови, наприклад коли
+            ширина екрана не перевищує 600 пікселів.
+          </p>
+          <pre><code>@media (max-width: 600px) {
+  .responsive-demo {
+    font-size: 0.9rem;
+    padding: 12px;
+  }
+}</code></pre>
+          <div class="responsive-demo">
+            На вузькому екрані цей блок змінить розмір тексту та відступи.
+          </div>
+        </section>
+
+        <section class="lesson-css-gallery" id="gallery-demo">
+          <h2>Галерея зображень</h2>
+          <p>
+            CSS Grid розташовує зображення різної ширини, а
+            <code>aspect-ratio</code> задає їм різні пропорції. Властивість
+            <code>object-fit: cover</code> заповнює рамку зображенням і обрізає
+            зайве. Для прикладу використано одне локальне фото з різними
+            пропорціями відображення; у власній галереї вкажіть різні файли у
+            <code>src</code>.
+          </p>
+          <pre><code>.image-gallery {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.gallery-item--wide {
+  grid-column: span 2;
+}
+
+.image-gallery img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.gallery-image--wide { aspect-ratio: 16 / 9; }
+.gallery-image--portrait { aspect-ratio: 3 / 4; }
+.gallery-image--square { aspect-ratio: 1; }</code></pre>
+          <div class="image-gallery">
+            <figure class="gallery-item gallery-item--wide">
+              <img
+                src="src/image2.jpg"
+                class="gallery-image--wide"
+                alt="Пташка на квітці у широкому форматі"
+              />
+              <figcaption>Пташка — широке фото 16:9 на два стовпці</figcaption>
+            </figure>
+            <figure class="gallery-item">
+              <img
+                src="src/image3.jpg"
+                class="gallery-image--portrait"
+                alt="Інтер'єр собору у портретному форматі"
+              />
+              <figcaption>Собор — портретне фото 3:4</figcaption>
+            </figure>
+            <figure class="gallery-item">
+              <img
+                src="src/image4.jpg"
+                class="gallery-image--square"
+                alt="Запалена свічка у квадратному форматі"
+              />
+              <figcaption>Свічка — квадратне фото 1:1</figcaption>
+            </figure>
+            <figure class="gallery-item gallery-item--wide">
+              <img
+                src="src/image.jpg"
+                class="gallery-image--wide"
+                alt="Пейзаж у широкому форматі"
+              />
+              <figcaption>Пейзаж — широке фото 16:9</figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <section class="lesson-css-dropdown" id="dropdown-demo">
+          <h2>Випадаюче меню</h2>
+          <p>
+            Елемент <code>&lt;details&gt;</code> створює меню, яке відкривається
+            натисканням. Його можна використовувати без JavaScript.
+          </p>
+          <pre><code>.dropdown[open] .dropdown-menu {
+  display: grid;
+}
+
+.dropdown-menu a:hover {
+  background: #dbeafe;
+}</code></pre>
+          <details class="dropdown">
+            <summary>Оберіть тему</summary>
+            <div class="dropdown-menu">
+              <a href="#gallery-demo">Галерея</a>
+              <a href="#position-demo">Позиціонування</a>
+              <a href="#table-demo">Таблиці</a>
+            </div>
+          </details>
+        </section>
+
+        <section class="lesson-css-navbar" id="navbar-demo">
+          <h2>Navigation bar</h2>
+          <p>
+            Навігаційну панель можна зібрати з Flexbox і посилань. Властивість
+            <code>justify-content</code> розподіляє елементи по ширині.
+          </p>
+          <pre><code>.demo-navbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px;
+}</code></pre>
+          <nav class="demo-navbar" aria-label="Приклад навігаційної панелі">
+            <a href="#gallery-demo">Галерея</a>
+            <a href="#dropdown-demo">Меню</a>
+            <a href="#table-demo">Таблиці</a>
+          </nav>
+        </section>
+
+        <section class="lesson-css-z-index">
+          <h2>Порядок шарів: z-index</h2>
+          <p>
+            Для елементів з позиціонуванням <code>z-index</code> визначає, який
+            шар буде поверх іншого. Більше значення розміщує елемент вище.
+          </p>
+          <pre><code>.layer {
+  position: absolute;
+}
+
+.layer-back { z-index: 1; }
+.layer-front { z-index: 2; }</code></pre>
+          <div class="z-index-demo" aria-label="Демонстрація перекриття шарів">
+            <div class="layer layer-back">z-index: 1</div>
+            <div class="layer layer-front">z-index: 2</div>
+          </div>
+        </section>
+
+        <section class="lesson-css-tables" id="table-demo">
+          <h2>Стилізація таблиць</h2>
+          <p>
+            CSS допомагає оформити межі й відступи комірок, а псевдоклас
+            <code>:nth-child(even)</code> додає чергування кольору рядків.
+          </p>
+          <pre><code>.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.styled-table tbody tr:nth-child(even) {
+  background: #eff6ff;
+}</code></pre>
+          <table class="styled-table">
+            <thead>
+              <tr>
+                <th scope="col">Властивість</th>
+                <th scope="col">Що змінює</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>border-collapse</code></td>
+                <td>Об'єднує межі комірок</td>
+              </tr>
+              <tr>
+                <td><code>padding</code></td>
+                <td>Додає внутрішні відступи</td>
+              </tr>
+              <tr>
+                <td><code>:nth-child(even)</code></td>
+                <td>Обирає парні рядки</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section class="lesson-css-position" id="position-demo">
+          <h2>Position</h2>
+          <p>
+            <code>position: relative</code> залишає елемент у звичайному потоці,
+            але створює точку відліку для дочірнього елемента з
+            <code>position: absolute</code>.
+          </p>
+          <pre><code>.position-demo {
+  position: relative;
+}
+
+.position-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+}</code></pre>
+          <div class="position-demo">
+            Батьківський блок із <code>position: relative</code>
+            <span class="position-badge">absolute</span>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,86 @@
+.lesson-js-syntax { --lesson-accent: #ca8a04; }
+.lesson-js-dom { --lesson-accent: #2563eb; }
+.lesson-js-reuse { --lesson-accent: #7c3aed; }
+.lesson-js-functions { --lesson-accent: #0891b2; }
+.lesson-js-dialog { --lesson-accent: #db2777; }
+.lesson-js-json { --lesson-accent: #16a34a; }
+
+.js-lessons h1 {
+  margin: 0 0 16px;
+  color: #a16207;
+  font-size: clamp(1.6rem, 5vw, 2rem);
+}
+
+.js-lessons .is-highlighted {
+  padding: 12px;
+  background: #fef3c7;
+  border-left: 4px solid #ca8a04;
+}
+
+.js-lessons .js-topic-list,
+.js-lessons .js-notes-list {
+  display: grid;
+  gap: 10px;
+  padding-left: 24px;
+}
+
+.js-lessons .js-inline-form {
+  display: grid;
+  gap: 10px;
+  max-width: 460px;
+  margin-bottom: 16px;
+}
+
+.js-lessons .js-inline-form button {
+  width: fit-content;
+}
+
+.js-lessons .js-notes-list li {
+  padding: 12px;
+  background: #f8fafc;
+  border: 1px solid #dbe3ee;
+  border-radius: 6px;
+}
+
+.js-lessons .js-notes-list p {
+  margin: 8px 0;
+  white-space: pre-wrap;
+}
+
+.js-lessons .js-notes-list time {
+  color: #64748b;
+  font-size: 0.875rem;
+}
+
+.js-lessons .js-delete-note {
+  display: block;
+  margin-top: 10px;
+  color: #b91c1c;
+}
+
+.js-lessons .js-note-form {
+  display: grid;
+  gap: 10px;
+  max-width: 560px;
+}
+
+.js-lessons .js-status {
+  min-height: 1.6em;
+}
+
+.js-lessons dialog {
+  width: min(100% - 32px, 440px);
+  padding: 24px;
+  color: #1e293b;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  box-shadow: 0 16px 48px rgb(15 23 42 / 25%);
+}
+
+.js-lessons dialog::backdrop {
+  background: rgb(15 23 42 / 55%);
+}
+
+.js-lessons dialog h2 {
+  color: #db2777;
+}

@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript Lessons — Основи JavaScript і DOM</title>
+    <meta
+      name="description"
+      content="Наочні приклади JavaScript: синтаксис, керування DOM, повторне використання коду, модальні вікна та збереження даних у JSON."
+    />
+    <meta property="og:title" content="JavaScript Lessons — уроки JavaScript" />
+    <meta
+      property="og:description"
+      content="Вивчайте JavaScript і DOM на інтерактивних прикладах."
+    />
+    <meta property="og:type" content="website" />
+    <link rel="icon" type="image/png" href="src/favicon.png" />
+    <link rel="stylesheet" href="base.css" />
+    <link rel="stylesheet" href="js.css" />
+    <script src="js.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <header class="site-header">
+        <a class="site-brand" href="index.html">HTML &amp; CSS &amp; JS Lessons</a>
+        <nav class="site-nav" aria-label="Головна навігація">
+          <a href="index.html">HTML</a>
+          <a href="css.html">CSS</a>
+          <a href="js.html" aria-current="page">JavaScript</a>
+        </nav>
+      </header>
+
+      <main class="lessons js-lessons">
+        <section class="lesson-js-syntax">
+          <h1>JavaScript: синтаксис і DOM</h1>
+          <p>
+            JavaScript додає сторінці поведінку: може реагувати на події,
+            змінювати HTML-елементи та оновлювати їхній вміст без перезавантаження.
+          </p>
+          <h2>Змінні, функції та події</h2>
+          <p>
+            <code>const</code> оголошує значення, яке не перепризначається,
+            <code>let</code> — значення, яке можна змінювати. Функцію можна
+            викликати після події, наприклад натискання кнопки.
+          </p>
+          <pre><code>const button = document.querySelector("#change-message");
+const message = document.querySelector("#demo-message");
+
+function changeMessage() {
+  message.textContent = "DOM оновлено JavaScript!";
+  message.classList.toggle("is-highlighted");
+}
+
+button.addEventListener("click", changeMessage);</code></pre>
+          <button id="change-message" type="button">Змінити текст у DOM</button>
+          <p id="demo-message" aria-live="polite">
+            Натисніть кнопку, щоб змінити цей елемент сторінки.
+          </p>
+        </section>
+
+        <section class="lesson-js-dom">
+          <h2>Знаходимо елементи й змінюємо DOM</h2>
+          <p>
+            <code>querySelector()</code> знаходить елемент за CSS-селектором.
+            Властивість <code>textContent</code> змінює текст, а
+            <code>classList</code> — його CSS-класи.
+          </p>
+          <pre><code>const heading = document.querySelector("h2");
+heading.textContent = "Новий заголовок";
+heading.classList.add("is-highlighted");</code></pre>
+          <p>
+            Приклад вище змінює саме повідомлення в попередньому блоці. Спробуйте
+            кілька разів натиснути кнопку й перевірити результат.
+          </p>
+        </section>
+
+        <section class="lesson-js-reuse">
+          <h2>Менше повторень: дані та цикл</h2>
+          <p>
+            Замість копіювати однаковий HTML для кожного пункту, зберігаємо
+            дані в масиві й один раз створюємо елемент у циклі.
+          </p>
+          <pre><code>const topics = ["DOM", "Події", "Масиви"];
+
+for (const topic of topics) {
+  const item = document.createElement("li");
+  item.textContent = topic;
+  list.append(item);
+}
+
+topics.push(topicName);
+const index = topics.indexOf(topicName);
+if (index !== -1) topics.splice(index, 1);</code></pre>
+          <form id="topic-add-form" class="js-inline-form">
+            <label for="topic-name">Назва нової теми</label>
+            <input
+              id="topic-name"
+              name="topic"
+              type="text"
+              maxlength="60"
+              placeholder="Наприклад, Події"
+              required
+            />
+            <button type="submit">Додати тему</button>
+          </form>
+          <ul id="topic-list" class="js-topic-list"></ul>
+          <p id="topic-count" aria-live="polite"></p>
+          <form id="topic-remove-form" class="js-inline-form">
+            <label for="topic-to-remove">Назва теми для видалення</label>
+            <input
+              id="topic-to-remove"
+              name="topic"
+              type="text"
+              maxlength="60"
+              placeholder="Введіть точну назву теми"
+              required
+            />
+            <button type="submit">Видалити тему</button>
+          </form>
+          <p id="topic-status" class="js-status" role="status" aria-live="polite"></p>
+        </section>
+
+        <section class="lesson-js-functions">
+          <h2>Повторне використання через функцію</h2>
+          <p>
+            Якщо ту саму дію треба виконати в різних місцях, винесіть її у
+            функцію та передавайте відмінні дані як аргументи.
+          </p>
+          <pre><code>function createGreeting(name) {
+  return `Привіт, ${name}!`;
+}
+
+createGreeting("Оля");
+createGreeting("Тарас");</code></pre>
+          <p id="greeting-examples" class="js-greeting-examples"></p>
+        </section>
+
+        <section class="lesson-js-dialog">
+          <h2>Модальне вікно</h2>
+          <p>
+            HTML-елемент <code>&lt;dialog&gt;</code> показує модальне вікно.
+            Методи <code>showModal()</code> і <code>close()</code> відкривають і
+            закривають його.
+          </p>
+          <pre><code>dialog.showModal();
+dialog.close();</code></pre>
+          <button id="open-dialog" type="button">Відкрити модальне вікно</button>
+          <dialog id="lesson-dialog" aria-labelledby="dialog-title">
+            <h2 id="dialog-title">Це модальне вікно</h2>
+            <p>Його вміст — звичайна HTML-розмітка.</p>
+            <button id="close-dialog" type="button">Закрити</button>
+          </dialog>
+        </section>
+
+        <section class="lesson-js-json">
+          <h2>Збереження й читання даних у JSON</h2>
+          <p>
+            JSON — формат структурованих даних, а не база даних. Ця форма
+            надсилає запис локальному Node.js-серверу: сервер додає його у файл
+            <code>data/notes.json</code> і повертає список записів. Кнопка
+            нижче повторно завантажує дані з цього файла через API. Кожен запис
+            можна видалити окремою кнопкою.
+          </p>
+          <pre><code>const response = await fetch("/api/notes", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ title, text }),
+});
+
+const notes = await fetch("/api/notes").then((result) =&gt; result.json());
+
+await fetch(`/api/notes/${noteId}`, { method: "DELETE" });</code></pre>
+          <form id="note-form" class="js-note-form">
+            <label for="note-title">Тема запису</label>
+            <input
+              id="note-title"
+              name="title"
+              type="text"
+              maxlength="80"
+              placeholder="Наприклад, DOM"
+              required
+            />
+            <label for="note-text">Нотатка</label>
+            <textarea
+              id="note-text"
+              name="text"
+              maxlength="500"
+              rows="3"
+              placeholder="Що ви сьогодні вивчили?"
+              required
+            ></textarea>
+            <button type="submit">Зберегти у JSON-файл</button>
+            <button id="reload-notes" type="button">Завантажити записи</button>
+          </form>
+          <p id="notes-status" class="js-status" role="status" aria-live="polite">
+            Завантаження записів...
+          </p>
+          <ul id="notes-list" class="js-notes-list"></ul>
+          <p>
+            Щоб зберігати дані, відкрийте сайт через локальний сервер, а не
+            безпосередньо як файл <code>file://</code>. Інструкція запуску є в
+            <code>README.md</code>.
+          </p>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

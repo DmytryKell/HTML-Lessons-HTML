@@ -1,0 +1,299 @@
+.css-lessons h1 {
+  margin: 0 0 16px;
+  color: #1d4ed8;
+  font-size: clamp(1.6rem, 5vw, 2rem);
+}
+
+.lesson-css-selectors { --lesson-accent: #2563eb; }
+.lesson-css-colors { --lesson-accent: #0f766e; }
+.lesson-css-typography { --lesson-accent: #7c3aed; }
+.lesson-css-box-model { --lesson-accent: #ea580c; }
+.lesson-css-background { --lesson-accent: #db2777; }
+.lesson-css-flex { --lesson-accent: #0891b2; }
+.lesson-css-grid { --lesson-accent: #16a34a; }
+.lesson-css-interaction { --lesson-accent: #ca8a04; }
+.lesson-css-responsive { --lesson-accent: #4f46e5; }
+.lesson-css-gallery { --lesson-accent: #0891b2; }
+.lesson-css-dropdown { --lesson-accent: #7c3aed; }
+.lesson-css-navbar { --lesson-accent: #2563eb; }
+.lesson-css-z-index { --lesson-accent: #db2777; }
+.lesson-css-tables { --lesson-accent: #16a34a; }
+.lesson-css-position { --lesson-accent: #ea580c; }
+
+.css-lessons .demo-note {
+  color: #1d4ed8;
+}
+
+.css-lessons .demo-note strong {
+  text-decoration: underline;
+}
+
+.css-lessons .color-demo {
+  padding: 16px;
+  color: #fff;
+  background-color: #0f766e;
+  border-radius: 6px;
+}
+
+.css-lessons .type-demo {
+  font-family: Georgia, serif;
+  font-size: 1.4rem;
+  line-height: 1.6;
+}
+
+.css-lessons .box-demo {
+  margin: 12px 0;
+  padding: 16px;
+  border: 3px solid #7c3aed;
+}
+
+.css-lessons .card-demo {
+  padding: 20px;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgb(15 23 42 / 12%);
+}
+
+.css-lessons .flex-demo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.css-lessons .flex-demo span,
+.css-lessons .grid-demo span {
+  padding: 12px;
+  background: #e0f2fe;
+  border-radius: 6px;
+}
+
+.css-lessons .grid-demo {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.css-lessons .interactive-demo {
+  width: auto;
+  transition: background-color 160ms ease, color 160ms ease;
+}
+
+.css-lessons .interactive-demo:hover {
+  background-color: #1d4ed8;
+  color: #fff;
+}
+
+.css-lessons .interactive-demo:focus-visible {
+  outline: 3px solid #93c5fd;
+  outline-offset: 3px;
+}
+
+.css-lessons .responsive-demo {
+  padding: 20px;
+  background: #eef2ff;
+  border-radius: 8px;
+}
+
+.css-lessons .image-gallery {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.css-lessons .image-gallery figure {
+  min-width: 0;
+  margin: 0;
+}
+
+.css-lessons .gallery-item--wide {
+  grid-column: span 2;
+}
+
+.css-lessons .image-gallery img {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.css-lessons .gallery-image--wide {
+  aspect-ratio: 16 / 9;
+}
+
+.css-lessons .gallery-image--portrait {
+  aspect-ratio: 3 / 4;
+}
+
+.css-lessons .gallery-image--square {
+  aspect-ratio: 1;
+}
+
+.css-lessons .image-gallery figcaption {
+  padding-top: 6px;
+  color: #475569;
+  font-size: 0.9rem;
+}
+
+.css-lessons .dropdown {
+  position: relative;
+  width: fit-content;
+  min-width: 200px;
+}
+
+.css-lessons .dropdown summary {
+  padding: 10px 12px;
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.css-lessons .dropdown-menu {
+  display: none;
+  gap: 4px;
+  padding: 6px;
+  background: #fff;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  box-shadow: 0 6px 16px rgb(15 23 42 / 12%);
+}
+
+.css-lessons .dropdown[open] .dropdown-menu {
+  display: grid;
+}
+
+.css-lessons .dropdown-menu a {
+  padding: 8px;
+  color: #1e293b;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+.css-lessons .dropdown-menu a:hover,
+.css-lessons .dropdown-menu a:focus-visible {
+  background: #dbeafe;
+}
+
+.css-lessons .demo-navbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 10px;
+  background: #1e293b;
+  border-radius: 8px;
+}
+
+.css-lessons .demo-navbar a {
+  padding: 8px 12px;
+  color: #fff;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.css-lessons .demo-navbar a:hover,
+.css-lessons .demo-navbar a:focus-visible {
+  background: #334155;
+  outline-offset: 2px;
+}
+
+.css-lessons .z-index-demo {
+  position: relative;
+  min-height: 150px;
+  isolation: isolate;
+}
+
+.css-lessons .z-index-demo .layer {
+  position: absolute;
+  display: grid;
+  width: min(220px, 60%);
+  min-height: 90px;
+  place-items: center;
+  border: 2px solid #fff;
+  border-radius: 8px;
+  color: #fff;
+  font-weight: 700;
+}
+
+.css-lessons .z-index-demo .layer-back {
+  top: 10px;
+  left: 10px;
+  z-index: 1;
+  background: #0891b2;
+}
+
+.css-lessons .z-index-demo .layer-front {
+  top: 45px;
+  left: 120px;
+  z-index: 2;
+  background: #db2777;
+}
+
+.css-lessons .styled-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.css-lessons .styled-table th {
+  color: #fff;
+  background: #166534;
+}
+
+.css-lessons .styled-table tbody tr:nth-child(even) {
+  background: #eff6ff;
+}
+
+.css-lessons .position-demo {
+  position: relative;
+  min-height: 120px;
+  padding: 24px 120px 24px 16px;
+  background: #fff7ed;
+  border: 2px solid #fdba74;
+  border-radius: 8px;
+}
+
+.css-lessons .position-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 6px 10px;
+  color: #fff;
+  background: #c2410c;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+@media (max-width: 600px) {
+  .css-lessons .image-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .css-lessons .responsive-demo {
+    padding: 12px;
+    font-size: 0.9rem;
+  }
+
+  .css-lessons .grid-demo {
+    grid-template-columns: 1fr;
+  }
+
+  .css-lessons .z-index-demo .layer-front {
+    left: 25%;
+  }
+
+  .css-lessons .position-demo {
+    padding-right: 16px;
+    padding-top: 52px;
+  }
+}
+
+@media (max-width: 380px) {
+  .css-lessons .image-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .css-lessons .gallery-item--wide {
+    grid-column: auto;
+  }
+}
