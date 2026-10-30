@@ -22,11 +22,13 @@
   <body>
     <div class="container">
       <header class="site-header">
-        <a class="site-brand" href="index.html">HTML &amp; CSS &amp; JS Lessons</a>
+        <a class="site-brand" href="index.html">Frontend Toolkit</a>
         <nav class="site-nav" aria-label="Головна навігація">
           <a href="index.html">HTML</a>
           <a href="css.html">CSS</a>
           <a href="js.html" aria-current="page">JavaScript</a>
+          <a href="resources.html">CSS-ресурси</a>
+          <a href="ai-tools.html">AI-інструменти</a>
         </nav>
       </header>
 
@@ -150,6 +152,103 @@ dialog.close();</code></pre>
             <p>Його вміст — звичайна HTML-розмітка.</p>
             <button id="close-dialog" type="button">Закрити</button>
           </dialog>
+        </section>
+
+        <section class="lesson-js-encryption">
+          <h2>Навчальна демонстрація шифрування даних</h2>
+          <p>
+            Web Crypto API шифрує текст алгоритмом AES-GCM за допомогою
+            випадкового ключа й одноразового вектора ініціалізації. У цій
+            демонстрації ключ існує лише в пам'яті вкладки: дані нікуди не
+            надсилаються й не зберігаються.
+          </p>
+          <p class="js-security-warning">
+            Вводьте лише тестовий текст — не справжній пароль, платіжні дані чи
+            особисту інформацію. Це навчальний приклад, а не захист для
+            виробничого застосунку.
+          </p>
+          <pre><code>const key = await crypto.subtle.generateKey(
+  { name: "AES-GCM", length: 256 },
+  false,
+  ["encrypt", "decrypt"],
+);
+const iv = crypto.getRandomValues(new Uint8Array(12));
+const ciphertext = await crypto.subtle.encrypt(
+  { name: "AES-GCM", iv },
+  key,
+  new TextEncoder().encode(text),
+);</code></pre>
+          <form id="encryption-form" class="js-encryption-form">
+            <label for="encryption-input">Тестовий текст для шифрування</label>
+            <textarea
+              id="encryption-input"
+              name="text"
+              maxlength="500"
+              rows="3"
+              placeholder="Наприклад, Навчальний приклад"
+              required
+            ></textarea>
+            <button type="submit">Зашифрувати й розшифрувати</button>
+            <button id="clear-encryption" type="button">Очистити результат</button>
+          </form>
+          <p id="encryption-status" class="js-status" role="status" aria-live="polite">
+            Працює на сайті через HTTPS або localhost у браузері з Web Crypto API.
+          </p>
+          <div class="js-encryption-result" aria-live="polite" hidden>
+            <h3>Зашифровані дані (Base64)</h3>
+            <pre><code id="ciphertext-output"></code></pre>
+            <h3>Розшифрований текст</h3>
+            <p id="decrypted-output"></p>
+          </div>
+          <p>
+            У реальному сайті передавайте дані через HTTPS. Для збереження
+            конфіденційних даних на сервері ключами керують на сервері або в
+            спеціальному сховищі ключів. Паролі не шифрують для подальшого
+            розшифрування — їх зберігають як стійкі хеші, наприклад Argon2id.
+            Шифрування лише у браузері не захищає від шкідливого коду на
+            пристрої користувача.
+          </p>
+        </section>
+
+        <section class="lesson-js-online-safety">
+          <h2>Безпека в інтернеті</h2>
+          <p>
+            Базові звички допомагають захищати акаунти, пристрої та персональні
+            дані під час роботи в інтернеті.
+          </p>
+          <ul class="js-safety-list">
+            <li>
+              <strong>Перевіряйте адресу сайту.</strong> Перш ніж вводити пароль
+              або платіжні дані, перевірте домен і використовуйте HTTPS.
+            </li>
+            <li>
+              <strong>Використовуйте унікальні паролі.</strong> Менеджер паролів
+              допомагає не повторювати пароль на різних сайтах.
+            </li>
+            <li>
+              <strong>Увімкніть багатофакторну автентифікацію.</strong>
+              Використовуйте passkeys або застосунок-автентифікатор, де це
+              доступно.
+            </li>
+            <li>
+              <strong>Остерігайтеся фішингу.</strong> Не відкривайте підозрілі
+              вкладення й не повідомляйте коди підтвердження іншим людям.
+            </li>
+            <li>
+              <strong>Оновлюйте програми та пристрої.</strong> Встановлюйте
+              оновлення з офіційних джерел і переглядайте дозволи застосунків.
+            </li>
+            <li>
+              <strong>Бережіть персональні дані.</strong> Не публікуйте
+              конфіденційну інформацію та створюйте резервні копії важливих
+              файлів.
+            </li>
+            <li>
+              <strong>Не довіряйте замочку як гарантії чесності.</strong> HTTPS
+              шифрує з'єднання, але сам по собі не підтверджує, що сайт
+              надійний.
+            </li>
+          </ul>
         </section>
 
         <section class="lesson-js-json">

@@ -1,0 +1,44 @@
+.lesson-ai-intro { --lesson-accent: #a16207; }
+.lesson-ai-code { --lesson-accent: #2563eb; }
+.lesson-ai-design { --lesson-accent: #7c3aed; }
+.lesson-ai-images { --lesson-accent: #db2777; }
+.lesson-ai-video { --lesson-accent: #ea580c; }
+.lesson-ai-backend { --lesson-accent: #16a34a; }
+.lesson-ai-api { --lesson-accent: #0891b2; }
+
+.ai-tool-lessons h1 {
+  color: #a16207;
+}
+
+.ai-tool-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  gap: 14px;
+}
+
+.ai-tool-card {
+  padding: 16px;
+  background: #f8fafc;
+  border: 1px solid #dbe3ee;
+  border-radius: 8px;
+}
+
+.ai-tool-card h3 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.ai-tool-card h3 a {
+  color: #1d4ed8;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.ai-tool-card h3 a:hover,
+.ai-tool-card h3 a:focus-visible {
+  color: #7c3aed;
+}
+
+.ai-tool-card p {
+  margin-bottom: 0;
+}

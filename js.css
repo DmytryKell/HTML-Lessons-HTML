@@ -3,6 +3,8 @@
 .lesson-js-reuse { --lesson-accent: #7c3aed; }
 .lesson-js-functions { --lesson-accent: #0891b2; }
 .lesson-js-dialog { --lesson-accent: #db2777; }
+.lesson-js-encryption { --lesson-accent: #7c3aed; }
+.lesson-js-online-safety { --lesson-accent: #dc2626; }
 .lesson-js-json { --lesson-accent: #16a34a; }
 
 .js-lessons h1 {
@@ -62,6 +64,43 @@
   display: grid;
   gap: 10px;
   max-width: 560px;
+}
+
+.js-lessons .js-encryption-form {
+  display: grid;
+  gap: 10px;
+  max-width: 560px;
+}
+
+.js-lessons .js-encryption-form button {
+  width: fit-content;
+}
+
+.js-lessons .js-security-warning {
+  padding: 12px;
+  color: #7f1d1d;
+  background: #fef2f2;
+  border-left: 4px solid #dc2626;
+}
+
+.js-lessons .js-encryption-result {
+  margin-top: 16px;
+}
+
+.js-lessons .js-encryption-result[hidden] {
+  display: none;
+}
+
+.js-lessons .js-encryption-result h3 {
+  margin-bottom: 8px;
+  font-size: 1rem;
+}
+
+.js-lessons .js-safety-list {
+  display: grid;
+  gap: 12px;
+  padding-left: 24px;
+  line-height: 1.6;
 }
 
 .js-lessons .js-status {

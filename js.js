@@ -88,6 +88,88 @@ document.querySelector("#close-dialog").addEventListener("click", () => {
   lessonDialog.close();
 });
 
+const encryptionForm = document.querySelector("#encryption-form");
+const encryptionStatus = document.querySelector("#encryption-status");
+const encryptionResult = document.querySelector(".js-encryption-result");
+const ciphertextOutput = document.querySelector("#ciphertext-output");
+const decryptedOutput = document.querySelector("#decrypted-output");
+
+function bytesToBase64(bytes) {
+  let binary = "";
+  for (const byte of bytes) {
+    binary += String.fromCharCode(byte);
+  }
+  return btoa(binary);
+}
+
+encryptionForm.addEventListener("submit", async (event) => {
+  event.preventDefault();
+  const formData = new FormData(encryptionForm);
+  const text = String(formData.get("text")).trim();
+  const submitButton = encryptionForm.querySelector('button[type="submit"]');
+
+  if (!text) {
+    encryptionStatus.textContent = "Введіть тестовий текст для демонстрації.";
+    return;
+  }
+
+  if (!globalThis.crypto?.subtle) {
+    encryptionStatus.textContent =
+      "Web Crypto API недоступне. Відкрийте сторінку через HTTPS або localhost.";
+    return;
+  }
+
+  submitButton.disabled = true;
+  encryptionResult.hidden = true;
+  encryptionStatus.textContent = "Шифрування тестового тексту...";
+
+  try {
+    const key = await crypto.subtle.generateKey(
+      { name: "AES-GCM", length: 256 },
+      false,
+      ["encrypt", "decrypt"],
+    );
+    const iv = crypto.getRandomValues(new Uint8Array(12));
+    const encodedText = new TextEncoder().encode(text);
+    const ciphertext = await crypto.subtle.encrypt(
+      { name: "AES-GCM", iv },
+      key,
+      encodedText,
+    );
+    const decrypted = await crypto.subtle.decrypt(
+      { name: "AES-GCM", iv },
+      key,
+      ciphertext,
+    );
+
+    ciphertextOutput.textContent = JSON.stringify(
+      {
+        algorithm: "AES-GCM",
+        iv: bytesToBase64(iv),
+        ciphertext: bytesToBase64(new Uint8Array(ciphertext)),
+      },
+      null,
+      2,
+    );
+    decryptedOutput.textContent = new TextDecoder().decode(decrypted);
+    encryptionResult.hidden = false;
+    encryptionStatus.textContent =
+      "Готово. Шифрування та розшифрування виконані локально у вашому браузері.";
+  } catch (error) {
+    encryptionStatus.textContent = `Не вдалося виконати демонстрацію: ${error.message}`;
+  } finally {
+    submitButton.disabled = false;
+  }
+});
+
+document.querySelector("#clear-encryption").addEventListener("click", () => {
+  encryptionForm.reset();
+  ciphertextOutput.textContent = "";
+  decryptedOutput.textContent = "";
+  encryptionResult.hidden = true;
+  encryptionStatus.textContent = "Результат і тестовий текст очищено.";
+});
+
 const noteForm = document.querySelector("#note-form");
 const notesList = document.querySelector("#notes-list");
 const notesStatus = document.querySelector("#notes-status");
